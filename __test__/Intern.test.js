@@ -1,0 +1,1 @@
+class Intern extends Employee {}
