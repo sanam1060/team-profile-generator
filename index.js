@@ -206,7 +206,13 @@ class Prompt {
               this.questions();
             });
           } else if (employeeType === "I finished entering my team info") {
-            return writeFile(generatePage(this.getTeamArray()));
+            //function that writes the html file
+            // return writeFile(generatePage(this.getTeamArray()));
+            const pagehtml = generateHTML(this.getTeamArray());
+            fs.writeFile("./dist/index.html", pagehtml, (err) => {
+              if (err) throw new Error(err);
+              console.log("Page created! Check out index.html in the dist to see it!");
+            });
           }
         });
       }
