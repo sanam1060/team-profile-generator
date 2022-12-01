@@ -9,12 +9,7 @@ test("creates an engineer object", () => {
 });
 
 test("gets github username", () => {
-  const engineer = new Engineer(
-    "Manager",
-    "1",
-    "sanamtest@gmail.com",
-    "Sanam1060"
-  );
+  const engineer = new Engineer("Manager", "1", "sanamtest@gmail.com", "Sanam1060");
 
   expect(engineer.github).toBe("Sanamgithub");
 });
