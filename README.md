@@ -20,6 +20,7 @@ Project is created using:
 * OOP
 
 ## **_Usage_**
+![screenshot of the application](.)
 
 ## **_Link URL to GitHub Repository_**
 https://github.com/sanam1060/team-profile-generator
