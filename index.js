@@ -79,144 +79,152 @@ class Prompt {
               },
             },
           ])
+          
+          // Pushes Manager data into teamArray
           .then((templateData) => {
-            this.teamArray.push(
-              new Manager(templateData.name, templateData.id, templateData.email, templateData.officeNumber)
-              );
-              this.questions();
-            });
-          } else if (employeeType === "Engineer") {
-            inquirer.prompt([{
-                type: "input",
-                name: "name",
-                message: "Please enter the engineer's name",
-                validate: (nameInput) => {
-                  if (nameInput) {
-                    return true;
-                  } else {
-                    console.log("Please enter the engineer's name!");
-                    return false;
-                  }
-                },
-              },
-              {
-                type: "number",
-                name: "id",
-                message: "Please enter the engineer's employee id",
-                validate: (idInput) => {
-                  if (idInput) {
-                    return true;
-                  } else {
-                    console.log("Please enter a correct answer, the employee id should be a number!");
-                    return false;
-                  }
-                },
-              },
-              {
-                type: "input",
-                name: "email",
-                message: "Please enter the engineer's email",
-                validate: (emailInput) => {
-                  if (emailInput) {
-                    return true;
-                  } else {
-                    console.log("Please enter the correct engineer's email!");
-                    return false;
-                  }
-                },
-              },
-              {
-                type: "input",
-                name: "github",
-                message: "Please enter the engineer's github username",
-                validate: (githubInput) => {
-                  if (githubInput) {
-                    return true;
-                  } else {
-                    console.log("Please enter the correct engineer's github username!");
-                    return false;
-                  }
-                },
-              },
-            ])
-            .then((templateData) => {
-              this.teamArray.push(
-                new Engineer(templateData.name, templateData.id, templateData.email, templateData.github));
-                this.questions();
-              });
-            } else if (employeeType === "Intern") {
-              inquirer.prompt([
-                {
-                  type: "input",
-                  name: "name",
-                  message: "Please enter the intern's name",
-                  validate: (nameInput) => {
-                    if (nameInput) {
-                      return true;
-                    } else {
-                      console.log("Please enter the intern's name!");
-                      return false;
-                    }
-                  },
-                },
-                {
-                  type: "number",
-                  name: "id",
-                  message: "Please enter the intern's employee id",
-                  validate: (idInput) => {
-                    if (idInput) {
-                    return true;
-                  } else {
-                    console.log("Please enter a correct answer, the employee id should be a number!");
-                    return false;
-                  }
-                },
-              },
-              {
-                type: "input",
-                name: "email",
-                message: "Please enter the intern's email",
-                validate: (emailInput) => {
-                  if (emailInput) {
-                    return true;
-                  } else {
-                    console.log("Please enter the correct intern's email!");
-                    return false;
-                  }
-                },
-              },
-              {
-                type: "input",
-                name: "school",
-                message: "Please enter the intern's school name",
-                validate: (schoolInput) => {
-                  if (schoolInput) {
-                    return true;
-                  } else {
-                    console.log("Please enter the correct intern school's name!");
-                    return false;
-                  }
-                },
-              },
-            ])
-            .then((templateData) => {
-              this.teamArray.push(
-                new Intern(templateData.name, templateData.id, templateData.email, templateData.school)
-              );
-              this.questions();
-            });
-          } else if (employeeType === "I finished entering my team info") {
-            //function that writes the html file
-            // return writeFile(generatePage(this.getTeamArray()));
-            const pagehtml = generateHTML(this.getTeamArray());
-            fs.writeFile("./dist/index.html", pagehtml, (err) => {
-              if (err) throw new Error(err);
-              console.log("Page created! Check out index.html in the dist to see it!");
-            });
-          }
-        });
-      }
-    };
+            this.teamArray.push(new Manager(templateData.name, templateData.id, templateData.email, templateData.officeNumber));
+            
+            // Sends user back to menu
+            this.questions();
+          });
+        
+        } else if (employeeType === "Engineer") {
+          inquirer.prompt([{
+            type: "input",
+            name: "name",
+            message: "Please enter the engineer's name",
+            validate: (nameInput) => {
+              if (nameInput) {
+                return true;
+              } else {
+                console.log("Please enter the engineer's name!");
+                return false;
+              }
+            },
+          },
+          {
+            type: "number",
+            name: "id",
+            message: "Please enter the engineer's employee id",
+            validate: (idInput) => {
+              if (idInput) {
+                return true;
+              } else {
+                console.log("Please enter a correct answer, the employee id should be a number!");
+                return false;
+              }
+            },
+          },
+          {
+            type: "input",
+            name: "email",
+            message: "Please enter the engineer's email",
+            validate: (emailInput) => {
+              if (emailInput) {
+                return true;
+              } else {
+                console.log("Please enter the correct engineer's email!");
+                return false;
+              }
+            },
+          },
+          {
+            type: "input",
+            name: "github",
+            message: "Please enter the engineer's github username",
+            validate: (githubInput) => {
+              if (githubInput) {
+                return true;
+              } else {
+                console.log("Please enter the correct engineer's github username!");
+                return false;
+              }
+            },
+          },
+        ])
+      
+      // Pushes Engineer data into teamArray
+      .then((templateData) => {
+        this.teamArray.push(new Engineer(templateData.name, templateData.id, templateData.email, templateData.github));
+              
+        // Sends user back to menu
+        this.questions();
+      });
+    } else if (employeeType === "Intern") {
+      inquirer.prompt([
+        {
+          type: "input",
+          name: "name",
+          message: "Please enter the intern's name",
+          validate: (nameInput) => {
+            if (nameInput) {
+              return true;
+            } else {
+              console.log("Please enter the intern's name!");
+              return false;
+            }
+          },
+        },
+        {
+          type: "number",
+          name: "id",
+          message: "Please enter the intern's employee id",
+          validate: (idInput) => {
+            if (idInput) {
+              return true;
+            } else {
+              console.log("Please enter a correct answer, the employee id should be a number!");
+              return false;
+            }
+          },
+        },
+        {
+          type: "input",
+          name: "email",
+          message: "Please enter the intern's email",
+          validate: (emailInput) => {
+            if (emailInput) {
+              return true;
+            } else {
+              console.log("Please enter the correct intern's email!");
+              return false;
+            }
+          },
+        },
+        {
+          type: "input",
+          name: "school",
+          message: "Please enter the intern's school name",
+          validate: (schoolInput) => {
+            if (schoolInput) {
+              return true;
+            } else {
+              console.log("Please enter the correct intern school's name!");
+              return false;
+            }
+          },
+        },
+      ])
+      
+      // Pushes Intern data into teamArray
+      .then((templateData) => {
+        this.teamArray.push(new Intern(templateData.name, templateData.id, templateData.email, templateData.school));
+        
+        // Sends user back to menu
+        this.questions();
+      });
+    } else if (employeeType === "I finished entering my team info") {
+      
+      // Function that writes the html file in the dist folder
+      const pagehtml = generateHTML(this.getTeamArray());
+      fs.writeFile("./dist/index.html", pagehtml, (err) => {
+        if (err) throw new Error(err);
+        console.log("Page created! Check out index.html in the dist/ folder to see it!");
+      });
+    }
+  });
+}
+};
 
 const prompt = new Prompt();
 prompt.questions();
