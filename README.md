@@ -21,7 +21,10 @@ Project is created using:
 * OOP
 
 ## **_Screenshot_**
-![screenshot of the application](./images/team-profile-generator-preview.png)
+![screenshot of the application](./assests/images/team-profile-generator-preview.png)
+
+## **_Usage_**
+Final application should similar to this video:
 
 ## **_Link URL to GitHub Repository_**
 https://github.com/sanam1060/team-profile-generator
