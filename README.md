@@ -24,8 +24,8 @@ Project is created using:
 ![screenshot of the application](./assests/images/team-profile-generator-preview.png)
 
 ## **_Usage_**
-Final application should similar to this video:
-[![Wath the video](./assets/team-profile-generator.mov)]
+Final application should work similar to this video:
+[!Wath the video(./assets/team-profile-generator.mov)]
 
 ## **_Link URL to GitHub Repository_**
 https://github.com/sanam1060/team-profile-generator
