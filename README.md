@@ -25,7 +25,7 @@ Project is created using:
 
 ## **_Usage_**
 The final application should work similar to this video:
-![Wath the video](./assets/team-profile-generator.mov)
+![Wath the video](https://youtu.be/qfjOk5_foMk)
 
 ## **_Link URL to GitHub Repository_**
 https://github.com/sanam1060/team-profile-generator
